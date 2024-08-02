@@ -1,0 +1,44 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/bootstrap-rtl.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <title><%= pageTitle %></title>
+</head>
+<body class="rtl">
+<nav class="navbar sticky-top bg-light flex-md-nowrap p-0">
+    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3 text-dark" href="#"> <%= fullName %> خوش آمدید </a>
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link text-dark" href="/admin/logout">خروج</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <%- include('../private/dashboardSidebar.ejs') %>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <%- body %>
+        </main>
+    </div>
+</div>
+<script src="/jquery.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('desc', {
+        language: 'fa'
+    });
+</script>
+<% if (path === '/dashboard/add-post' || path === '/dashboard/add-menu') { %>
+    <script src="/js/upload.js"></script>
+<% } %>
+<script src="/js/pagination.js"></script>
+</body>
